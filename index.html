@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#101b35" />
+  <meta name="description" content="FinanFlow: organize receitas, despesas e compartilhe as contas pendentes do mês em uma imagem." />
+  <title>FinanFlow • Seu controle financeiro</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <svg class="svg-defs" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="i-wallet" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="15" rx="3"/><path d="M3 9V7a3 3 0 0 1 3-3h11"/><path d="M16 13h5"/><circle cx="16" cy="13" r=".7" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></symbol>
+    <symbol id="i-list" viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13"/><path d="M3 6h.01M3 12h.01M3 18h.01" stroke-width="3"/></symbol>
+    <symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m3 17 5-5 4 4 3-3 6 6"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="m7 17 10-10M7 7h10v10"/></symbol>
+    <symbol id="i-arrow-down" viewBox="0 0 24 24"><path d="m7 7 10 10M17 7v10H7"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 17v3h16v-3"/></symbol>
+    <symbol id="i-share" viewBox="0 0 24 24"><path d="M12 16V3m0 0L7 8m5-5 5 5M4 14v5a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5"/></symbol>
+    <symbol id="i-edit" viewBox="0 0 24 24"><path d="m3 17-.5 4.5L7 21l13-13-4-4L3 17Z"/><path d="m14 6 4 4"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16M10 3h4M6 7l1 14h10l1-14M10 11v6m4-6v6"/></symbol>
+    <symbol id="i-log-out" viewBox="0 0 24 24"><path d="M10 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h5m4-4 5-5-5-5m5 5H9"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M5 5l14 14M19 5 5 19"/></symbol>
+    <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="m12 2 1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8L12 2ZM19 16l.8 2.2L22 19l-2.2.8L19 22l-.8-2.2L16 19l2.2-.8L19 16Z"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 3v4M17 3v4M3 10h18"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></symbol>
+    <symbol id="i-coins" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5c-1-1-5-1.5-6.5 0-2 2.5 5 3 6 4.5 2 3-1.5 5-6 3M12 5v14"/></symbol>
+  </svg>
+
+  <section class="auth-screen" id="auth-screen">
+    <div class="auth-art">
+      <div class="auth-art-content">
+        <div class="brand brand-light"><span class="brand-icon"><svg><use href="#i-wallet"></use></svg></span><span>finan<span class="brand-highlight">flow.</span></span></div>
+        <div class="auth-headline"><span class="auth-pill"><svg><use href="#i-sparkles"></use></svg> Mais organização, menos preocupação</span><h1>Seu dinheiro.<br /><em>Suas regras.</em></h1><p>Acompanhe cada gasto, saiba o que falta pagar e compartilhe suas pendências em segundos.</p></div>
+        <div class="auth-demo-card"><div class="demo-card-label">RESUMO DO MÊS</div><div class="demo-big-number">R$ 4.850,00</div><div class="demo-chart"><span style="height:40%"></span><span style="height:70%"></span><span style="height:52%"></span><span style="height:88%"></span><span style="height:62%"></span><span style="height:100%"></span><span style="height:77%"></span><span style="height:91%"></span><span style="height:62%"></span></div><div class="demo-caption">Tudo sob controle, em um só lugar <span>↗</span></div></div>
+        <p class="auth-art-footer">Seu espaço para cuidar das finanças.</p>
+      </div>
+      <div class="orb orb-one"></div><div class="orb orb-two"></div>
+    </div>
+    <main class="auth-form-side">
+      <div class="auth-mobile-brand brand"><span class="brand-icon"><svg><use href="#i-wallet"></use></svg></span><span>finan<span class="brand-highlight">flow.</span></span></div>
+      <div class="auth-panel">
+        <span class="eyebrow">BEM-VINDO AO FINANFLOW</span>
+        <h2 id="auth-title">Acesse sua conta</h2>
+        <p class="muted" id="auth-description">Entre para continuar de onde você parou.</p>
+        <form id="auth-form" class="auth-form">
+          <label for="auth-email">E-mail</label>
+          <input id="auth-email" type="email" autocomplete="email" placeholder="seuemail@exemplo.com" required />
+          <div class="password-label"><label for="auth-password">Senha</label><button type="button" class="text-link" id="forgot-password">Esqueceu a senha?</button></div>
+          <input id="auth-password" type="password" autocomplete="current-password" placeholder="Digite sua senha" minlength="6" required />
+          <button type="submit" class="btn btn-primary btn-full" id="auth-submit">Entrar na minha conta <span>→</span></button>
+        </form>
+        <p class="auth-alert hidden" id="auth-alert" role="status"></p>
+        <div class="auth-switch"><span id="auth-switch-label">Ainda não tem uma conta?</span> <button class="text-link strong" id="auth-switch-btn" type="button">Criar conta gratuita</button></div>
+        <div class="or-divider"><span>ou</span></div>
+        <button type="button" class="btn btn-demo btn-full" id="demo-start"><svg><use href="#i-sparkles"></use></svg> Explorar demonstração</button>
+        <p class="auth-note">A demonstração salva informações somente neste navegador. Para dados privados e sincronizados, configure o Supabase.</p>
+      </div>
+    </main>
+  </section>
+
+  <div id="app-screen" class="app-shell hidden">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-head"><div class="brand"><span class="brand-icon"><svg><use href="#i-wallet"></use></svg></span><span>finan<span class="brand-highlight">flow.</span></span></div><button class="icon-btn sidebar-close" type="button" id="sidebar-close" aria-label="Fechar menu"><svg><use href="#i-x"></use></svg></button></div>
+      <div class="sidebar-label">MENU PRINCIPAL</div>
+      <nav class="side-nav" aria-label="Navegação principal"><a class="nav-item active" href="#overview"><svg><use href="#i-grid"></use></svg> Visão geral</a><a class="nav-item" href="#transactions-section"><svg><use href="#i-list"></use></svg> Lançamentos</a><button class="nav-item" type="button" id="nav-image"><svg><use href="#i-image"></use></svg> Relatório em imagem</button></nav>
+      <div class="sidebar-spacer"></div>
+      <div class="sidebar-help"><div class="help-icon"><svg><use href="#i-sparkles"></use></svg></div><strong>Contas em dia?</strong><p>Gere uma imagem das pendências e compartilhe com quem quiser.</p><button type="button" id="sidebar-report">Gerar relatório <span>↗</span></button></div>
+      <div class="sidebar-account"><div class="avatar" id="account-avatar">U</div><div class="account-info"><strong id="account-name">Minha conta</strong><small id="account-email">—</small></div><button type="button" class="icon-btn" id="logout-btn" aria-label="Sair da conta" title="Sair"><svg><use href="#i-log-out"></use></svg></button></div>
+    </aside>
+    <div class="sidebar-overlay hidden" id="sidebar-overlay"></div>
+    <div class="main-area">
+      <header class="topbar"><div class="topbar-left"><button type="button" class="icon-btn mobile-menu" id="menu-open" aria-label="Abrir menu"><svg><use href="#i-menu"></use></svg></button><div class="crumb">Minha área <span>/</span> <strong>Visão geral</strong></div></div><div class="topbar-right"><span class="status-dot"></span><span class="connected-status" id="connection-label">Seu espaço financeiro</span><div class="topbar-avatar" id="top-avatar">U</div></div></header>
+      <main class="content" id="overview">
+        <div class="demo-banner hidden" id="demo-banner"><svg><use href="#i-info"></use></svg><span><strong>Modo demonstração:</strong> dados guardados apenas neste navegador. Configure o Supabase para usar seu login de verdade.</span></div>
+        <div class="page-top"><div><div class="eyebrow">PAINEL FINANCEIRO</div><h1>Seu panorama financeiro <span class="wave">✳</span></h1><p class="muted">Acompanhe suas finanças com clareza e tranquilidade.</p></div><button type="button" class="btn btn-primary add-main" id="add-transaction"><svg><use href="#i-plus"></use></svg> Novo lançamento</button></div>
+        <div class="period-row"><div class="month-picker"><button class="icon-btn" id="prev-month" type="button" aria-label="Mês anterior"><svg><use href="#i-chevron"></use></svg></button><div class="month-center"><svg><use href="#i-calendar"></use></svg><span id="current-month">—</span></div><button class="icon-btn rotated" id="next-month" type="button" aria-label="Próximo mês"><svg><use href="#i-chevron"></use></svg></button></div><button type="button" class="btn btn-outline" id="go-today">Ir para mês atual</button></div>
+        <div class="stats-grid"><article class="stat-card"><div class="stat-header"><span>Receitas previstas</span><div class="stat-icon stat-green"><svg><use href="#i-arrow-down"></use></svg></div></div><div class="stat-amount" id="stat-income">R$ 0,00</div><p class="stat-foot">Total de entradas no mês</p></article><article class="stat-card"><div class="stat-header"><span>Despesas do mês</span><div class="stat-icon stat-rose"><svg><use href="#i-arrow-up"></use></svg></div></div><div class="stat-amount" id="stat-expenses">R$ 0,00</div><p class="stat-foot">Total de contas cadastradas</p></article><article class="stat-card highlight-card"><div class="stat-header"><span>Contas pendentes</span><div class="stat-icon stat-amber"><svg><use href="#i-clock"></use></svg></div></div><div class="stat-amount" id="stat-pending">R$ 0,00</div><p class="stat-foot" id="stat-pending-count">0 contas aguardando pagamento</p></article><article class="stat-card"><div class="stat-header"><span>Saldo previsto</span><div class="stat-icon stat-violet"><svg><use href="#i-wallet"></use></svg></div></div><div class="stat-amount" id="stat-balance">R$ 0,00</div><p class="stat-foot">Receitas menos despesas</p></article></div>
+        <div class="insights-grid"><section class="surface action-surface"><div class="surface-intro"><div><div class="eyebrow">COMPARTILHE COM FACILIDADE</div><h2>Suas contas pendentes, <em>em uma imagem.</em></h2><p>Crie um resumo visual com todas as contas que faltam pagar neste mês. Pronto para baixar ou enviar por WhatsApp.</p><button type="button" class="btn btn-light" id="big-report"><svg><use href="#i-image"></use></svg> Gerar imagem de pendências <span>→</span></button></div><div class="report-art" aria-hidden="true"><div class="paper"><span class="paper-notch"></span><div class="paper-top"></div><div class="paper-line long"></div><div class="paper-line"></div><div class="paper-line medium"></div><div class="paper-line long"></div><div class="paper-total"></div></div><div class="paper-bubble"><svg><use href="#i-check"></use></svg></div></div></div></section><section class="surface category-surface"><div class="surface-head"><div><h2>Despesas por categoria</h2><p>Distribuição dos gastos no mês</p></div><span class="tiny-chip">MENSAL</span></div><div class="category-chart" id="category-chart"><p class="empty-subtle">Cadastre despesas para ver os dados.</p></div></section></div>
+        <section class="surface transaction-surface" id="transactions-section"><div class="transactions-heading"><div><h2>Seus lançamentos</h2><p>Gerencie suas receitas, despesas e pagamentos.</p></div><button type="button" class="btn btn-outline export-btn" id="export-csv"><svg><use href="#i-download"></use></svg> Exportar CSV</button></div><div class="toolbar"><div class="search-control"><svg><use href="#i-search"></use></svg><input id="search-input" type="search" placeholder="Buscar lançamento..." aria-label="Buscar lançamentos" /></div><div class="filter-wrap"><select id="status-filter" aria-label="Filtrar lançamentos"><option value="all">Todos os lançamentos</option><option value="pending">Despesas pendentes</option><option value="paid">Despesas pagas</option><option value="income">Receitas</option><option value="expense">Todas as despesas</option></select><svg><use href="#i-chevron-down"></use></svg></div></div><div class="table-scroll"><table class="transactions-table"><thead><tr><th>LANÇAMENTO</th><th>VENCIMENTO / DATA</th><th>VALOR</th><th>STATUS</th><th>AÇÕES</th></tr></thead><tbody id="transactions-body"></tbody></table></div><div id="empty-state" class="empty-state hidden"><div class="empty-illustration"><svg><use href="#i-wallet"></use></svg></div><h3>Nada por aqui ainda</h3><p>Adicione um lançamento ou ajuste os filtros para encontrar seus registros.</p><button type="button" class="btn btn-primary" id="empty-add"><svg><use href="#i-plus"></use></svg> Adicionar lançamento</button></div><div class="table-footer"><span id="table-count">0 lançamentos</span><span id="footer-pending">Total pendente: R$ 0,00</span></div></section>
+        <footer class="site-footer"><span>© <span id="footer-year"></span> FinanFlow · Feito para simplificar suas finanças.</span><span>Organize hoje, tranquilize amanhã <span class="foot-heart">♥</span></span></footer>
+      </main>
+    </div>
+  </div>
+
+  <dialog id="transaction-dialog" class="app-dialog"><form id="transaction-form" class="dialog-card"><div class="dialog-head"><div><div class="eyebrow">CONTROLE FINANCEIRO</div><h2 id="transaction-dialog-title">Novo lançamento</h2></div><button type="button" class="icon-btn" data-close="transaction-dialog" aria-label="Fechar"><svg><use href="#i-x"></use></svg></button></div><div class="form-grid"><div class="field span-2"><label for="item-name">Descrição do lançamento *</label><input id="item-name" type="text" maxlength="110" required placeholder="Ex.: Conta de luz, aluguel, salário..." /></div><div class="field"><label for="item-kind">Tipo *</label><select id="item-kind"><option value="expense">Despesa (saída)</option><option value="income">Receita (entrada)</option></select></div><div class="field"><label for="item-category">Categoria *</label><select id="item-category" required></select></div><div class="field"><label for="item-amount">Valor (R$) *</label><input id="item-amount" type="text" inputmode="decimal" maxlength="18" required placeholder="Ex.: 159,90" /></div><div class="field"><label for="item-due">Data *</label><input id="item-due" type="date" required /></div><div class="field span-2"><label class="checkbox-label"><input id="item-paid" type="checkbox" /><span id="item-paid-label">Essa despesa já foi paga</span></label></div><div class="field span-2"><label for="item-note">Observação (opcional)</label><textarea id="item-note" rows="2" maxlength="300" placeholder="Detalhes que queira lembrar..."></textarea></div></div><div class="dialog-actions"><button type="button" class="btn btn-outline" data-close="transaction-dialog">Cancelar</button><button type="submit" id="item-save" class="btn btn-primary">Salvar lançamento</button></div></form></dialog>
+  <dialog id="report-dialog" class="app-dialog report-dialog"><div class="dialog-card report-dialog-content"><div class="dialog-head"><div><div class="eyebrow">RESUMO COMPARTILHÁVEL</div><h2>Imagem das contas pendentes</h2></div><button type="button" class="icon-btn" data-close="report-dialog" aria-label="Fechar"><svg><use href="#i-x"></use></svg></button></div><p class="muted report-help">O relatório mostra somente as despesas não pagas do mês selecionado, incluindo o total e as datas de vencimento.</p><div class="report-preview"><img id="report-preview-image" alt="Prévia do resumo mensal de contas pendentes" /></div><div class="dialog-actions report-actions"><button class="btn btn-outline" type="button" id="share-image"><svg><use href="#i-share"></use></svg> Compartilhar</button><button class="btn btn-primary" type="button" id="download-image"><svg><use href="#i-download"></use></svg> Baixar PNG</button></div></div></dialog>
+  <dialog id="password-dialog" class="app-dialog"><form id="password-form" class="dialog-card small-dialog"><div class="dialog-head"><div><h2>Definir nova senha</h2><p class="muted">Escolha uma senha com pelo menos 6 caracteres.</p></div></div><div class="field"><label for="new-password">Nova senha</label><input id="new-password" type="password" required minlength="6" autocomplete="new-password" /></div><div class="dialog-actions"><button type="submit" class="btn btn-primary btn-full">Atualizar senha</button></div></form></dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
